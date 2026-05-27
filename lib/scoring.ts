@@ -76,6 +76,8 @@ function determineTier(
   if (age > 50 && qualification === "secondary") return "C";
   if (totalScore < 4) return "C";
   if (age > 50 && germanScore <= 0.5 && !isShortageMatch) return "C";
+  // Over 60 with no German and no bachelor's+ is not viable regardless of sector
+  if (age > 60 && germanScore <= 0.5 && qualScore < 2.5) return "C";
 
   const noZeroFactors = [ageScore, qualScore, profScore, germanScore].every((s) => s > 0);
   if (totalScore >= 8 && noZeroFactors) return "A";
