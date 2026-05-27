@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream text-dark font-body;
+  }
+}
+
+@layer utilities {
+  .step-enter {
+    animation: stepEnter 300ms ease forwards;
+  }
+  .step-enter-back {
+    animation: stepEnterBack 300ms ease forwards;
+  }
+}
+
+@keyframes stepEnter {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes stepEnterBack {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes verdictReveal {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.verdict-reveal {
+  animation: verdictReveal 400ms ease-out 200ms both;
+}
